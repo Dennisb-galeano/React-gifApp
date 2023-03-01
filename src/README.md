@@ -13,3 +13,7 @@ git remote --v
 git push origin 
 
 
+
+"type": "module", estaba en packaje.json linea 5 lo elimine para las pruebas 
+
+
