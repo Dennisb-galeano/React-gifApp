@@ -12,12 +12,12 @@
     const { data } = await resp.json();
 
     //para extraer informacion puntual del api
-    const gifs = data.map( img => {
-        return {
+    const gifs = data.map( img => ({
           id: img.id,
           title: img.title,
           url: img.images.downsized_medium.url
-        }
-    });
+        
+    }));
+
     return gifs;
   }
