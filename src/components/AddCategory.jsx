@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import  propTypes  from "prop-types";
 
 
 export const AddCategory = ({ onNewCategory }) => { //componente que maneja el imput
@@ -10,12 +10,12 @@ export const AddCategory = ({ onNewCategory }) => { //componente que maneja el i
     setinputValue(target.value);
   }
 
-  const onSubmit = (event) => {
+  const onSubmit = (event) => { //metodo
     event.preventDefault();
 
     if (inputValue.trim().length <= 1) return;
 
-    onNewCategory(inputValue.trim())
+    onNewCategory(inputValue.trim());
     setinputValue('');
   }
 
@@ -28,11 +28,13 @@ export const AddCategory = ({ onNewCategory }) => { //componente que maneja el i
         placeholder="Buscar gifs" //aparece texto provisional en el imput
         value={inputValue}
         onChange={onInputChange} //tenemos un evento .. y este se lo estamos mandando a la funcion
-
       />
-
     </form>
   )
+}
+
+AddCategory.proptypes ={
+  onNewCategory: propTypes.func.isRequired,
 }
 
 
