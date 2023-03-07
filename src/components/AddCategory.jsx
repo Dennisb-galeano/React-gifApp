@@ -1,27 +1,27 @@
 import { useState } from "react";
-import  propTypes  from "prop-types";
+import propTypes from "prop-types";
 
 
 export const AddCategory = ({ onNewCategory }) => { //componente que maneja el imput
 
-  const [inputValue, setinputValue] = useState( ) //este es el valo inicial uqe va a tener ese inputvalue
+  const [inputValue, setInputValue] = useState(''); //este es el valo inicial uqe va a tener ese inputvalue
 
   const onInputChange = ({ target }) => { //desestructura el target para no tener que colocar event
-    setinputValue(target.value);
+    setInputValue(target.value);
   }
 
   const onSubmit = (event) => { //metodo
     event.preventDefault();
-
     if (inputValue.trim().length <= 1) return;
 
-    onNewCategory(inputValue.trim());
-    setinputValue('');
+    
+    setInputValue('');
+    onNewCategory( inputValue.trim() ); // innew..se llama con el valor d la caja de extp 
   }
 
   return (
 
-    <form onSubmit={(event) => onSubmit(event)}> {/*formulario - cuando doy enter automaticamamte se envia el submit*/}
+    <form onSubmit={onSubmit} aria-label="form"> {/*formulario - cuando doy enter automaticamamte se envia el submit*/}
 
       <input
         type="text"
@@ -33,7 +33,7 @@ export const AddCategory = ({ onNewCategory }) => { //componente que maneja el i
   )
 }
 
-AddCategory.proptypes ={
+AddCategory.proptypes = {
   onNewCategory: propTypes.func.isRequired,
 }
 
