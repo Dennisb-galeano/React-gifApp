@@ -71,9 +71,8 @@ describe('Pruebas en < GifGrid />', () => {
      screen.debug();
    });
 
-
-
-
 });
+
+// screen:
 
     
